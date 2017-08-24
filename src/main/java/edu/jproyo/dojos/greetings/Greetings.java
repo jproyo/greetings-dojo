@@ -26,11 +26,31 @@ public class Greetings {
 			.map(notificationService::greeting)
 			.orElse(GreetingResult.NOT_FOUND);
 	}
+	
+	/**
+	 * Sets the data access.
+	 *
+	 * @param dataAccess the new data access
+	 */
+	public void setDataAccess(EmployeeDataAccess dataAccess) {
+		this.dataAccess = dataAccess;
+	}
+	
+	/**
+	 * Sets the notification service.
+	 *
+	 * @param notificationService the new notification service
+	 */
+	public void setNotificationService(NotificationService notificationService) {
+		this.notificationService = notificationService;
+	}
 
 	/**
 	 * Validate.
 	 */
 	public void validate() {
+		if(this.dataAccess == null) throw new IllegalStateException("DataAccess Employee instance must be provided");
+		if(this.notificationService == null) throw new IllegalStateException("Notification Employee instance must be provided");
 	}
 
 	/**
@@ -49,7 +69,30 @@ public class Greetings {
 		
 		/** The target. */
 		private Greetings target = new Greetings();
+		
+		/**
+		 * Employee data access.
+		 *
+		 * @param employeeDataAccess the employee data access
+		 * @return the builder
+		 */
+		public Builder employeeDataAccess(EmployeeDataAccess employeeDataAccess){
+			this.target.dataAccess = employeeDataAccess;
+			return this;
+		}
 
+		/**
+		 * Notification service.
+		 *
+		 * @param notificationService the notification service
+		 * @return the builder
+		 */
+		public Builder notificationService(NotificationService notificationService){
+			this.target.notificationService = notificationService;
+			return this;
+		}
+
+		
 		/**
 		 * Builds the.
 		 *
@@ -59,6 +102,17 @@ public class Greetings {
 			target.validate();
 			return target;
 		}
+		
+//		public Greetings buildWithDefaults() {
+//			if(this.target.dataAccess == null){
+//				this.target.dataAccess = new FileEmployeeDataAccess();
+//			}
+//			if(this.target.notificationService == null){
+//				this.target.notificationService = new EmailNotificat();
+//			}
+//			target.validate();
+//			return target;
+//		}
 		
 		
 	}
