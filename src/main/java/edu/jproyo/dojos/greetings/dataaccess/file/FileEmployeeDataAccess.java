@@ -9,8 +9,7 @@ public class FileEmployeeDataAccess implements EmployeeDataAccess {
 
 	@Override
 	public Optional<Employees> loadEmployees() {
-		// TODO Auto-generated method stub
-		return null;
+		return Optional.empty();
 	}
 
 }
