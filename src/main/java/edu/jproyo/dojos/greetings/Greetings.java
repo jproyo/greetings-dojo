@@ -115,7 +115,7 @@ public class Greetings {
 				this.target.dataAccess = new FileEmployeeDataAccess();
 			}
 			if(this.target.notificationService == null){
-				this.target.notificationService = new NotificationServiceImpl();
+				this.target.notificationService = NotificationServiceImpl.createDefault();
 			}
 			return build();
 		}
