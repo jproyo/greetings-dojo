@@ -42,6 +42,7 @@ public class Greetings {
 	}
 
 	public GreetingResult sayGreetings() {
+		
 		return GreetingResult.OK;
 	}
 

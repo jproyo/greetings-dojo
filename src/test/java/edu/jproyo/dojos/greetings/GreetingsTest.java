@@ -15,6 +15,7 @@ public class GreetingsTest {
 		target = Greetings.create().build();
 		GreetingResult result = target.sayGreetings();
 		assertNotNull(result);
+		assertEquals(GreetingResult.OK, result);
 	}
 
 }
