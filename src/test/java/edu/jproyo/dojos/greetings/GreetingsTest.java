@@ -1,10 +1,9 @@
 package edu.jproyo.dojos.greetings;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
-
-import edu.jproyo.dojos.greetings.Greetings;
 
 public class GreetingsTest {
 	
@@ -17,5 +16,4 @@ public class GreetingsTest {
 		assertNotNull(result);
 		assertEquals(GreetingResult.OK, result);
 	}
-
 }
