@@ -9,7 +9,7 @@ public class FileEmployeeDataAccess implements EmployeeDataAccess {
 
 	@Override
 	public Optional<Employees> loadEmployees() {
-		return Optional.empty();
+		return Optional.of(new Employees());
 	}
 
 }

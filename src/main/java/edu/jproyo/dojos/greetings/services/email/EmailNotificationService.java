@@ -10,8 +10,7 @@ public class EmailNotificationService implements NotificationService {
 
 	@Override
 	public GreetingResult greeting(Set<Employee> toBeGreeting) {
-		// TODO Auto-generated method stub
-		return null;
+		return GreetingResult.OK;
 	}
 
 }

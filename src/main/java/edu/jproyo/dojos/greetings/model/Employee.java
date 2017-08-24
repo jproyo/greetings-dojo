@@ -90,6 +90,11 @@ public class Employee {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	
+	public boolean isTodayBirthday(){
+		return false;
+	}
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
