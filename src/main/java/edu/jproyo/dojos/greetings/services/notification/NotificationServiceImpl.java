@@ -42,10 +42,48 @@ public class NotificationServiceImpl implements NotificationService {
 	 *
 	 * @return the notification service impl
 	 */
+	public static Builder create(){
+		return new Builder();
+	}
+	
+	/**
+	 * Creates the default.
+	 *
+	 * @return the notification service impl
+	 */
 	public static NotificationServiceImpl createDefault(){
-		NotificationServiceImpl service = new NotificationServiceImpl();
-		service.strategies.add(new EmailStrategy());
-		return service;
+		return new Builder().withStrategy(new EmailStrategy()).build();
+	}
+	
+	/**
+	 * The Class Builder.
+	 */
+	public static class Builder {
+		
+		/** The target. */
+		private NotificationServiceImpl target = new NotificationServiceImpl();
+		
+		/**
+		 * With strategy.
+		 *
+		 * @param strategies the strategies
+		 * @return the builder
+		 */
+		public Builder withStrategy(NotificationStrategy strategies){
+			target.strategies.add(strategies);
+			return this;
+		}
+		
+		/**
+		 * Builds the.
+		 *
+		 * @return the notification service impl
+		 */
+		public NotificationServiceImpl build(){
+			return this.target;
+		}
+		
+		
 	}
 
 }
