@@ -1,6 +1,6 @@
-# Vending demo
+# Greetings dojo
 
-[![Build Status](https://travis-ci.org/jproyo/grettings-dojo.svg?branch=master)](https://travis-ci.org/jproyo/grettings-dojo.svg?branch=master)
+[![Build Status](https://travis-ci.org/jproyo/greetings-dojo.svg?branch=master)](https://travis-ci.org/jproyo/greetings-dojo.svg?branch=master)
 
 ## Requirements
 
