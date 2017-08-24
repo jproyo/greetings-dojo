@@ -68,4 +68,6 @@ public class GreetingsIntegrationTest {
 		assertNotNull(result);
 		assertEquals(GreetingResult.FAILED, result);
 	}
+	
+	
 }

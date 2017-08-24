@@ -43,10 +43,11 @@ public class FileEmployeeDataAccess implements EmployeeDataAccess {
 			    List<Employee> employees = csvReader.readAll().stream().map(mapper::buildFrom).collect(Collectors.toList());
 				return Optional.of(EmployeeResult.createFrom(employees));
 			}catch(Exception e){
+				throw new RuntimeException("Error Parsing CSV employee file", e);
 			}
 		} catch (Exception e) {
+			throw new RuntimeException("Error Reading CSV employee file", e);
 		}
-		return Optional.empty();
 	}
 	
 	/**
