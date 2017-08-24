@@ -1,5 +1,6 @@
 package edu.jproyo.dojos.greetings.model;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -98,7 +99,12 @@ public class Employee {
 	 * @return true, if is today birthday
 	 */
 	public boolean isTodayBirthday(){
-		return false;
+		Calendar instance = Calendar.getInstance();
+		Calendar birth = Calendar.getInstance();
+		birth.setTime(dateOfBirth);
+		return instance.get(Calendar.YEAR) == birth.get(Calendar.YEAR) &&
+				instance.get(Calendar.MONTH) == birth.get(Calendar.MONTH) &&
+				instance.get(Calendar.DATE) == birth.get(Calendar.DATE);
 	}
 
 	/* (non-Javadoc)
