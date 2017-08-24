@@ -149,6 +149,15 @@ public class Employee {
 			return false;
 		return true;
 	}
+
+	/**
+	 * Full name.
+	 *
+	 * @return the string
+	 */
+	public String fullName() {
+		return String.format("%s %s", getFirstName(), getLastName());
+	}
 	
 	
 
