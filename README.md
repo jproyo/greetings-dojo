@@ -8,15 +8,15 @@ Write a program that loads a set of employee records from a flat file, and sends
 
 The flat file is a sequence of records, separated by newlines. These are the first few lines:
 
-last_name, first_name, date_of_birth, email
-Doe, John, 1982/10/08, john.doe@foobar.com
-Ann, Mary, 1975/09/11, mary.ann@foobar.com
+    last_name, first_name, date_of_birth, email
+    Doe, John, 1982/10/08, john.doe@foobar.com
+    Ann, Mary, 1975/09/11, mary.ann@foobar.com
 
 The greetings email contains the following text:
 
-Subject: Happy birthday!
+    Subject: Happy birthday!
 
-Happy birthday, dear John!
+    Happy birthday, dear John!
 
 The goal of this exercise is to come up with a solution that is:
 
@@ -32,8 +32,8 @@ The goal of this exercise is to come up with a solution that is:
 
 ## Run the solution
 
-        To run the solution you should execute maven command as follow
+    To run the solution you should execute maven command as follow
 
-        > mvn clean install
+    > mvn clean install
 
-        Enjoy it!!!!!!!!!!!
+    Enjoy it!!!!!!!!!!!
