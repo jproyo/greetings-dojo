@@ -21,7 +21,7 @@ import edu.jproyo.dojos.greetings.services.notification.NotificationServiceImpl;
 import edu.jproyo.dojos.greetings.services.notification.strategy.EmailStrategy;
 
 @RunWith(MockitoJUnitRunner.class)
-public class GreetingsTest {
+public class GreetingsIntegrationTest {
 	
 	private Greetings target; 
 
