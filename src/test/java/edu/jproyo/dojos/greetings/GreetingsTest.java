@@ -1,8 +1,10 @@
-package edu.jproyo.dojos;
+package edu.jproyo.dojos.greetings;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import edu.jproyo.dojos.greetings.Greetings;
 
 public class GreetingsTest {
 	
