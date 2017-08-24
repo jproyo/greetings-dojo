@@ -1,13 +1,15 @@
 package edu.jproyo.dojos.greetings.dataaccess.file;
 
+import java.io.File;
 import java.io.FileReader;
 import java.net.URI;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
-import com.opencsv.bean.CsvToBeanBuilder;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
 
 import edu.jproyo.dojos.greetings.dataaccess.EmployeeDataAccess;
 import edu.jproyo.dojos.greetings.model.Employee;
@@ -21,6 +23,9 @@ public class FileEmployeeDataAccess implements EmployeeDataAccess {
 	/** The Constant DEFAULT_FILE_CLASSPATH. */
 	private static final String DEFAULT_FILE_CLASSPATH = "data-employees.csv";
 	
+	/** The mapper. */
+	private EmployeeMapper mapper = new EmployeeMapper();
+	
 	/** The file path. */
 	private String filePath;
 
@@ -29,13 +34,17 @@ public class FileEmployeeDataAccess implements EmployeeDataAccess {
 	 */
 	@Override
 	public Optional<EmployeeResult> loadEmployees() {
-		Path path = Optional.ofNullable(filePath)
-			.map(p -> Paths.get(URI.create(p)))
-			.orElse(Paths.get(DEFAULT_FILE_CLASSPATH));
-		try(FileReader reader = new FileReader(path.toFile())){
-			List<Employee> beans = new CsvToBeanBuilder<Employee>(reader).withType(Employee.class).build().parse();
-			return Optional.of(EmployeeResult.createFrom(beans));
-		}catch(Exception e){
+		try {
+			File file = Paths.get(Optional.ofNullable(filePath)
+					.map(URI::create)
+					.orElse(Thread.currentThread().getContextClassLoader().getResource(DEFAULT_FILE_CLASSPATH).toURI()))
+					.toFile();
+			try(FileReader reader = new FileReader(file); CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).build()){
+			    List<Employee> employees = csvReader.readAll().stream().map(mapper::buildFrom).collect(Collectors.toList());
+				return Optional.of(EmployeeResult.createFrom(employees));
+			}catch(Exception e){
+			}
+		} catch (Exception e) {
 		}
 		return Optional.empty();
 	}
@@ -47,6 +56,15 @@ public class FileEmployeeDataAccess implements EmployeeDataAccess {
 	 */
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
+	}
+	
+	/**
+	 * Sets the mapper.
+	 *
+	 * @param mapper the new mapper
+	 */
+	public void setMapper(EmployeeMapper mapper) {
+		this.mapper = mapper;
 	}
 
 }

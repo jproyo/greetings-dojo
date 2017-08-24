@@ -13,9 +13,9 @@ public class Employee {
 	/** The last name. */
 	private String lastName;
 	
-	/** The birthday. */
-	private Date birthday;
-	
+	/** The date of birth. */
+	private Date dateOfBirth;
+		
 	/** The email. */
 	private String email;
 	
@@ -56,24 +56,6 @@ public class Employee {
 	}
 	
 	/**
-	 * Gets the birthday.
-	 *
-	 * @return the birthday
-	 */
-	public Date getBirthday() {
-		return birthday;
-	}
-	
-	/**
-	 * Sets the birthday.
-	 *
-	 * @param birthday the new birthday
-	 */
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
-	
-	/**
 	 * Gets the email.
 	 *
 	 * @return the email
@@ -92,6 +74,29 @@ public class Employee {
 	}
 	
 	
+	/**
+	 * Gets the date of birth.
+	 *
+	 * @return the date of birth
+	 */
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	/**
+	 * Sets the date of birth.
+	 *
+	 * @param dateOfBirth the new date of birth
+	 */
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	/**
+	 * Checks if is today birthday.
+	 *
+	 * @return true, if is today birthday
+	 */
 	public boolean isTodayBirthday(){
 		return false;
 	}
