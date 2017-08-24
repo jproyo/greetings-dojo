@@ -13,10 +13,6 @@ public interface Formatter {
 	 * @param employee the employee
 	 * @return the formatted message
 	 */
-	default FormattedMessage format(Employee employee){
-		FormattedMessage formattedMessage = new FormattedMessage();
-		formattedMessage.setName(employee.getFirstName());
-		return formattedMessage;
-	}
+	Message format(Employee employee);
 
 }
