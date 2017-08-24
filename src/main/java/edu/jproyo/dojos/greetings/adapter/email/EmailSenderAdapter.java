@@ -12,6 +12,6 @@ public interface EmailSenderAdapter {
 	 *
 	 * @param employee the employee
 	 */
-	public void sendEmail(Employee employee);
+	public SendResult sendEmail(Employee employee);
 
 }

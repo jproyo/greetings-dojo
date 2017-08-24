@@ -3,6 +3,7 @@ package edu.jproyo.dojos.greetings.services.notification.strategy;
 import java.util.Set;
 
 import edu.jproyo.dojos.greetings.adapter.email.EmailSenderAdapter;
+import edu.jproyo.dojos.greetings.adapter.email.SendResult;
 import edu.jproyo.dojos.greetings.model.Employee;
 import edu.jproyo.dojos.greetings.services.notification.NotificationResult;
 import edu.jproyo.dojos.greetings.services.notification.NotificationStrategy;
@@ -20,12 +21,10 @@ public class EmailStrategy implements NotificationStrategy {
 	 */
 	@Override
 	public NotificationResult notification(Set<Employee> employees) {
-		try {
-			employees.stream().forEach(e -> adapter.sendEmail(e));
-		} catch (Exception e) {
-			return NotificationResult.FAILED;
+		if(employees.stream().map(e -> adapter.sendEmail(e)).allMatch(r -> r.equals(SendResult.SENT))){
+			return NotificationResult.OK;
 		}
-		return NotificationResult.OK;
+		return NotificationResult.FAILED;
 	}
 	
 	/**
