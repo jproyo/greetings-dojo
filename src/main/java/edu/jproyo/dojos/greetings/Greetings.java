@@ -103,16 +103,20 @@ public class Greetings {
 			return target;
 		}
 		
-//		public Greetings buildWithDefaults() {
-//			if(this.target.dataAccess == null){
-//				this.target.dataAccess = new FileEmployeeDataAccess();
-//			}
-//			if(this.target.notificationService == null){
-//				this.target.notificationService = new EmailNotificat();
-//			}
-//			target.validate();
-//			return target;
-//		}
+		/**
+		 * Builds the with defaults.
+		 *
+		 * @return the greetings
+		 */
+		public Greetings buildWithDefaults() {
+			if(this.target.dataAccess == null){
+				this.target.dataAccess = new FileEmployeeDataAccess();
+			}
+			if(this.target.notificationService == null){
+				this.target.notificationService = new EmailNotificationService();
+			}
+			return build();
+		}
 		
 		
 	}

@@ -11,8 +11,8 @@ public class GreetingsTest {
 	private Greetings target; 
 
 	@Test
-	public void testGreetings() {
-		target = Greetings.create().build();
+	public void testGreetingsWithDefaults() {
+		target = Greetings.create().buildWithDefaults();
 		GreetingResult result = target.sayGreetings();
 		assertNotNull(result);
 		assertEquals(GreetingResult.OK, result);
