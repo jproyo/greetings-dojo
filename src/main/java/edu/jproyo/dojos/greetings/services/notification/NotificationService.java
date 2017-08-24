@@ -1,4 +1,4 @@
-package edu.jproyo.dojos.greetings.services;
+package edu.jproyo.dojos.greetings.services.notification;
 
 import java.util.Set;
 

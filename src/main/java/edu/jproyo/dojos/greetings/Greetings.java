@@ -3,8 +3,8 @@ package edu.jproyo.dojos.greetings;
 import edu.jproyo.dojos.greetings.dataaccess.EmployeeDataAccess;
 import edu.jproyo.dojos.greetings.dataaccess.file.FileEmployeeDataAccess;
 import edu.jproyo.dojos.greetings.model.EmployeeResult;
-import edu.jproyo.dojos.greetings.services.NotificationService;
-import edu.jproyo.dojos.greetings.services.email.EmailNotificationService;
+import edu.jproyo.dojos.greetings.services.notification.NotificationService;
+import edu.jproyo.dojos.greetings.services.notification.NotificationServiceImpl;
 
 /**
  * The Class Greetings.
@@ -115,7 +115,7 @@ public class Greetings {
 				this.target.dataAccess = new FileEmployeeDataAccess();
 			}
 			if(this.target.notificationService == null){
-				this.target.notificationService = new EmailNotificationService();
+				this.target.notificationService = new NotificationServiceImpl();
 			}
 			return build();
 		}

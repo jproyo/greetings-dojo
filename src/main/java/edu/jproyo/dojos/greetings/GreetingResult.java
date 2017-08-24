@@ -1,6 +1,15 @@
 package edu.jproyo.dojos.greetings;
 
+/**
+ * The Enum GreetingResult.
+ */
 public enum GreetingResult {
-	OK, NOT_FOUND
+
+	/** The ok. */
+	OK,
+	/** The not found. */
+	NOT_FOUND,
+	/** The failed. */
+	FAILED
 
 }
