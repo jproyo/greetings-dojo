@@ -102,8 +102,7 @@ public class Employee {
 		Calendar instance = Calendar.getInstance();
 		Calendar birth = Calendar.getInstance();
 		birth.setTime(dateOfBirth);
-		return instance.get(Calendar.YEAR) == birth.get(Calendar.YEAR) &&
-				instance.get(Calendar.MONTH) == birth.get(Calendar.MONTH) &&
+		return  instance.get(Calendar.MONTH) == birth.get(Calendar.MONTH) &&
 				instance.get(Calendar.DATE) == birth.get(Calendar.DATE);
 	}
 
